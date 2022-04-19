@@ -1,8 +1,0 @@
-tt, pp = np.loadtxt('primeiropulsodb.txt', unpack=True)
-ppdB=(((pp*166/100)+130)/10)   #normalização dos dados brutos de dBa para dB
-Pot=np.float_power(10,ppdB)*np.float_power(10,-12)*2*np.pi*0.04 #Conversao de dB para Watts
-Wk=np.trapz(Pot,tt) #Calculo da Integral para encontrar a energia
-print ("Integral da Potência:", Wk,"J")
-plt.xlabel("Tempo(s)")
-plt.ylabel("Potência (W)")
-plt.plot(tt,Pot)
